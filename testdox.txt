@@ -1,0 +1,24 @@
+Cart Loading (Treestoneit\ShoppingCart\Tests\CartLoading)
+ [ ] Attaches current cart to user if user doesnt have saved cart
+ [ ] Loads saved cart if current cart is empty
+ [ ] Overwrites saved cart if current cart is not empty
+
+Cart (Treestoneit\ShoppingCart\Tests\Cart)
+ [ ] Stores cart identifier in session
+ [ ] Adds items to content
+ [ ] Updates item
+ [ ] Removes item from content
+ [ ] Destroys entire cart instance
+
+Service Provider (Treestoneit\ShoppingCart\Tests\ServiceProvider)
+ [ ] Binds cart to container
+
+Tax (Treestoneit\ShoppingCart\Tests\Tax)
+ [ ] Calculates tax in flat mode
+ [ ] Calculates tax in per item mode
+ [ ] Calculates tax with arbitrary rate input
+
+Totals (Treestoneit\ShoppingCart\Tests\Totals)
+ [ ] Retrieves content
+ [ ] Gives subtotal
+

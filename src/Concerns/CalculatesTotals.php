@@ -11,6 +11,8 @@ use InvalidArgumentException;
 
 trait CalculatesTotals
 {
+    use HasItems;
+
     /**
      * @var float
      */

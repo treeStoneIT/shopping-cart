@@ -19,11 +19,12 @@
     "require": {
         "php": "^7.1",
         "illuminate/support": "^6",
-        "illuminate/contracts": "^6"
+        "illuminate/contracts": "^6",
+        "illuminate/database": "^6"
     },
     "require-dev": {
-        "orchestra/testbench": "3.8.*",
-        "phpunit/phpunit": "^7.0"
+        "orchestra/testbench": "4.*",
+        "phpunit/phpunit": "^8.0"
     },
     "autoload": {
         "psr-4": {
@@ -36,9 +37,7 @@
         }
     },
     "scripts": {
-        "test": "vendor/bin/phpunit",
-        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
-
+        "test": "vendor/bin/phpunit"
     },
     "config": {
         "sort-packages": true

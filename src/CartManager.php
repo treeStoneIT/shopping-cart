@@ -12,7 +12,7 @@ use Illuminate\Support\Traits\Macroable;
 
 class CartManager implements Countable, CartContract
 {
-    use Concerns\HasItems;
+    use Concerns\ManagesCartItems;
     use Concerns\CalculatesTotals;
     use Concerns\AttachesToUsers;
     use ForwardsCalls;
