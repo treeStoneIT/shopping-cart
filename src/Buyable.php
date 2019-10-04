@@ -10,26 +10,23 @@ interface Buyable
     /**
      * Get the identifier of the Buyable item.
      *
-     * @param  null  $options
      * @return int|string
      */
-    public function getBuyableIdentifier($options = null);
+    public function getBuyableIdentifier();
 
     /**
      * Get the description or title of the Buyable item.
      *
-     * @param  null  $options
      * @return string
      */
-    public function getBuyableDescription($options = null);
+    public function getBuyableDescription();
 
     /**
      * Get the price of the Buyable item.
      *
-     * @param  null  $options
      * @return float|null
      */
-    public function getBuyablePrice($options = null);
+    public function getBuyablePrice();
 
     /**
      * Any extra fees not based on product quantity.

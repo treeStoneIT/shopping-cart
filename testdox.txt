@@ -4,14 +4,16 @@ Cart Loading (Treestoneit\ShoppingCart\Tests\CartLoading)
  [ ] Overwrites saved cart if current cart is not empty
 
 Cart (Treestoneit\ShoppingCart\Tests\Cart)
- [ ] Stores cart identifier in session
- [ ] Adds items to content
- [ ] Updates item
- [ ] Removes item from content
- [ ] Destroys entire cart instance
+ [x] Stores cart identifier in session
+ [x] Adds items to content
+ [x] Updates item
+ [x] Removes item from content
+ [x] Destroys entire cart instance
 
 Service Provider (Treestoneit\ShoppingCart\Tests\ServiceProvider)
- [ ] Binds cart to container
+ [x] Binds cart to container
+ [x] Aliases cart contract
+ [x] Aliases cart manager
 
 Tax (Treestoneit\ShoppingCart\Tests\Tax)
  [ ] Calculates tax in flat mode

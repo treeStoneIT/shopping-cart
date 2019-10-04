@@ -1,11 +1,14 @@
 <?php
 
-namespace Treestoneit\ShoppingCart;
+namespace Treestoneit\ShoppingCart\Tests\Fixtures;
 
-use Exception;
+use Illuminate\Database\Eloquent\Model;
+use Treestoneit\ShoppingCart\Buyable;
 
-trait BuyableTrait
+class Product extends Model implements Buyable
 {
+    protected $guarded = [];
+
     /**
      * Get the identifier of the Buyable item.
      *
@@ -13,7 +16,7 @@ trait BuyableTrait
      */
     public function getBuyableIdentifier()
     {
-        return $this->getKey();
+        return $this->id;
     }
 
     /**
@@ -23,7 +26,7 @@ trait BuyableTrait
      */
     public function getBuyableDescription()
     {
-        throw new Exception('Buyable description has not been set.');
+        return $this->name;
     }
 
     /**
@@ -33,7 +36,7 @@ trait BuyableTrait
      */
     public function getBuyablePrice()
     {
-        throw new Exception('Buyable price has not been set.');
+        return $this->price;
     }
 
     /**

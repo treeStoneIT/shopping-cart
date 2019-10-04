@@ -2,8 +2,6 @@
 
 namespace Treestoneit\ShoppingCart\Tests;
 
-use PHPUnit\Framework\TestCase;
-
 class TaxTest extends TestCase
 {
     public function testCalculatesTaxInFlatMode()
