@@ -88,11 +88,9 @@ trait CalculatesTotals
 
         return function (CartItem $item) use ($rate) {
             if (! $rate) {
-                if (! $item->buyable instanceof Taxable) {
-                    throw new InvalidArgumentException('No flat rate was supplied and buyable is not instance of '.Taxable::class);
-                }
-
-                $rate = $item->buyable->getTaxRate();
+                $rate = $item->buyable instanceof Taxable
+                    ? $item->buyable->getTaxRate()
+                    : 0;
             }
 
             return $item->price * $rate;
