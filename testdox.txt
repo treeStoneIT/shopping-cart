@@ -21,6 +21,6 @@ Tax (Treestoneit\ShoppingCart\Tests\Tax)
  [ ] Calculates tax with arbitrary rate input
 
 Totals (Treestoneit\ShoppingCart\Tests\Totals)
- [ ] Retrieves content
- [ ] Gives subtotal
+ [x] Retrieves content
+ [x] Gives subtotal
 
