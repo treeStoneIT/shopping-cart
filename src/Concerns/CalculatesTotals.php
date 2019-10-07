@@ -7,12 +7,9 @@ use Treestoneit\ShoppingCart\Models\CartItemCollection;
 use Treestoneit\ShoppingCart\Taxable;
 use Closure;
 use Illuminate\Support\Facades\Config;
-use InvalidArgumentException;
 
 trait CalculatesTotals
 {
-    use HasItems;
-
     /**
      * @var float
      */
@@ -93,7 +90,7 @@ trait CalculatesTotals
                     : 0;
             }
 
-            return $item->price * $rate;
+            return round($item->price * ($rate / 100), 2);
         };
     }
 }

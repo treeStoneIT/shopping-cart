@@ -16,9 +16,9 @@ Service Provider (Treestoneit\ShoppingCart\Tests\ServiceProvider)
  [x] Aliases cart manager
 
 Tax (Treestoneit\ShoppingCart\Tests\Tax)
- [ ] Calculates tax in flat mode
- [ ] Calculates tax in per item mode
- [ ] Calculates tax with arbitrary rate input
+ [x] Calculates tax in flat mode
+ [x] Calculates tax in per item mode
+ [x] Calculates tax with arbitrary rate input
 
 Totals (Treestoneit\ShoppingCart\Tests\Totals)
  [x] Retrieves content
