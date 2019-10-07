@@ -2,9 +2,19 @@
 
 namespace Treestoneit\ShoppingCart\Tests;
 
-use Treestoneit\ShoppingCart\Facades\Cart;
+use Illuminate\Foundation\Auth\User as Auth;
 use Treestoneit\ShoppingCart\Models\Cart as CartModel;
 use Treestoneit\ShoppingCart\Models\CartItem;
+use Treestoneit\ShoppingCart\Tests\Fixtures\Product;
+
+class User extends Auth
+{
+    protected $attributes = [
+        'name' => 'Avraham',
+        'email' => 'avraham@bomshteyn.com',
+        'password' => '$2y$10$TN2/TBbL54M9EqXyNe.LduTYLn7hK2RdpAgOVnCdLTkfXG5Wir2Da',
+    ];
+}
 
 class CartLoadingTest extends TestCase
 {
@@ -20,18 +30,19 @@ class CartLoadingTest extends TestCase
 
     protected function setUp(): void
     {
-        self::markTestIncomplete('need to finish');
-
         parent::setUp();
 
-        $this->user = factory(User::class)->create(['id' => 1]);
+        $this->loadLaravelMigrations();
+        $this->migrate();
 
-        Cart::refreshCart($this->cart = new CartModel(['id' => 1]));
+        $this->user = User::create();
+
+        $this->cart()->refreshCart($this->cart = CartModel::create());
     }
 
     public function testAttachesCurrentCartToUserIfUserDoesntHaveSavedCart()
     {
-        Cart::loadUserCart($this->user);
+        $this->cart()->loadUserCart($this->user);
 
         self::assertEquals($this->user['id'], $this->cart['user_id'], 'Didn\'t attach cart to user.');
     }
@@ -41,13 +52,16 @@ class CartLoadingTest extends TestCase
         $savedCart = CartModel::create(['user_id' => $this->user['id']]);
 
         $savedCart->items()->save(
-            CartItem::make(['quantity' => 1])->buyable()->associate(factory(Product::class)->create())
+            CartItem::make(['quantity' => 1])->buyable()->associate(Product::create([
+                'name' => 'Heinz Ketchup',
+                'price' => 1.99
+            ]))
         );
 
-        Cart::loadUserCart($this->user);
+        $this->cart()->loadUserCart($this->user);
 
         self::assertFalse($this->cart->is($savedCart));
-        self::assertTrue(Cart::getModel()->is($savedCart), 'Didn\'t load saved cart.');
+        self::assertTrue($this->cart()->getModel()->is($savedCart), 'Didn\'t load saved cart.');
     }
 
     public function testOverwritesSavedCartIfCurrentCartIsNotEmpty()
@@ -55,14 +69,20 @@ class CartLoadingTest extends TestCase
         $savedCart = CartModel::create(['user_id' => $this->user['id']]);
 
         $savedCart->items()->save(
-            CartItem::make(['quantity' => 1])->buyable()->associate(factory(Product::class)->create())
+            CartItem::make(['quantity' => 1])->buyable()->associate(Product::create([
+                'name' => 'Heinz Ketchup',
+                'price' => 1.99
+            ]))
         );
 
-        Cart::add(factory(Product::class)->create());
+        $this->cart()->add(Product::create([
+            'name' => 'Rice Noodles',
+            'price' => 1000
+        ]));
 
-        Cart::loadUserCart($this->user);
+        $this->cart()->loadUserCart($this->user);
 
         self::assertFalse($this->cart->is($savedCart));
-        self::assertTrue(Cart::getModel()->is($this->cart), 'Didn\'t overwrite saved cart.');
+        self::assertTrue($this->cart()->getModel()->is($this->cart), 'Didn\'t overwrite saved cart.');
     }
 }

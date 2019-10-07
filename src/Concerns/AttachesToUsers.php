@@ -37,7 +37,7 @@ trait AttachesToUsers
      * @param  \Illuminate\Contracts\Auth\Authenticatable  $user
      * @return static
      */
-    protected function attachTo(Authenticatable $user): self
+    public function attachTo(Authenticatable $user): self
     {
         $this->cart->fill([
             'user_id' => $user->getAuthIdentifier(),

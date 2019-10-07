@@ -8,16 +8,15 @@ use Treestoneit\ShoppingCart\CartServiceProvider;
 
 abstract class TestCase extends BaseTestCase
 {
-    protected function getPackageProviders($app)
+    protected function getPackageProviders($app): array
     {
         return [
             CartServiceProvider::class
         ];
     }
 
-    protected function migrate()
+    protected function migrate(): void
     {
-        $this->loadLaravelMigrations();
         $this->loadMigrationsFrom(__DIR__.'/migrations');
 
         $this->artisan('migrate');

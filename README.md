@@ -56,6 +56,46 @@ Or remove the item completely.
 Cart::remove($item->id);
 ```
 
+### Attaching to Users
+
+You can attach a cart instance to a user, so that their cart from a previous session can be retrieved. Attaching a cart to a user is acheived by calling the `attachTo` method, passing in an instance of `Illuminate\Contracts\Auth\Authenticatable`.
+
+```php
+class RegisterController
+{
+    /**
+     * The user has been registered.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  mixed  $user
+     * @return mixed
+     */
+    protected function registered(Request $request, $user)
+    {
+        Cart::attachTo($user);
+    }
+}
+``` 
+
+Then when the user logs in, you can call the `loadUserCart` method, again passing the user instance.
+
+```php
+class LoginController
+{
+    /**
+     * The user has been authenticated.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  mixed  $user
+     * @return mixed
+     */
+    protected function authenticated(Request $request, $user)
+    {
+        Cart::loadUserCart($user);
+    }
+}
+```
+
 ### Dependency Injection
 
 If you're not a facade person, you can use the container to inject the shopping cart instance by type-hinting the `Treestoneit\ShoppingCart\CartManager` class, or the `Treestoneit\ShoppingCart\CartContract` interface.
@@ -132,7 +172,7 @@ And run the included database migrations.
 php artisan migrate
 ```
 
-To modify the config file, run
+To publish the config file, run
 ```bash
 php artisan vendor:publish --provider="Treestoneit\ShoppingCart\CartServiceProvider"
 ```
@@ -142,6 +182,14 @@ php artisan vendor:publish --provider="Treestoneit\ShoppingCart\CartServiceProvi
 ``` bash
 composer test
 ```
+
+## Roadmap
+
+Some things I didn't get around to yet:
+
+- Clear cart instance which has not been attached to a user when session is destroyed.
+- Add an Artisan command that will clear any unattached carts (these two might be mutually exclusive)
+- Add ability to configure cart merging strategy when `loadUserCart` is called
 
 ## Credits
 

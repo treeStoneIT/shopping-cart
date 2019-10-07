@@ -1,7 +1,7 @@
 Cart Loading (Treestoneit\ShoppingCart\Tests\CartLoading)
- [ ] Attaches current cart to user if user doesnt have saved cart
- [ ] Loads saved cart if current cart is empty
- [ ] Overwrites saved cart if current cart is not empty
+ [x] Attaches current cart to user if user doesnt have saved cart
+ [x] Loads saved cart if current cart is empty
+ [x] Overwrites saved cart if current cart is not empty
 
 Cart (Treestoneit\ShoppingCart\Tests\Cart)
  [x] Stores cart identifier in session
