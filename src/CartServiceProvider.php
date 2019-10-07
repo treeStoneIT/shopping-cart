@@ -24,6 +24,8 @@ class CartServiceProvider extends ServiceProvider
 
     /**
      * Register the application services.
+     * TODO dedicated cart factory class
+     * TODO replace Laravel framework facades with contracts
      */
     public function register()
     {
