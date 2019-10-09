@@ -19,9 +19,8 @@ class CreateCartItemsTable extends Migration
             $table->foreign('cart_id')
                   ->references('id')
                   ->on('carts');
-            $table->unsignedInteger('buyable_id');
-            $table->string('buyable_type');
-            $table->integer('quantity');
+            $table->morphs('buyable');
+            $table->unsignedInteger('quantity');
             $table->timestamps();
         });
     }
