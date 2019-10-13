@@ -193,8 +193,9 @@ Some things I didn't get around to yet:
 
 ## Credits
 
-- [Avraham Appel](https://github.com/treestoneit)
-- [Bomshteyn Consulting](https://bomshteyn.com)
+- Created by [Avraham Appel](https://github.com/treestoneit)
+- Initial development sponsored by [Bomshteyn Consulting](https://bomshteyn.com)
+- Inspired by [LaravelShoppingcart package](https://github.com/Crinsane/LaravelShoppingcart) by [@Crisane](https://github.com/Crinsane)
 
 ## License
 
