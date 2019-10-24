@@ -37,7 +37,7 @@ trait CalculatesTotals
      */
     public function count(): int
     {
-        return $this->items()->count();
+        return $this->items()->sum('quantity');
     }
 
     /**
