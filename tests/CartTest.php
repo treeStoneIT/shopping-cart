@@ -2,7 +2,7 @@
 
 namespace Treestoneit\ShoppingCart\Tests;
 
-use Treestoneit\ShoppingCart\Tests\Fixtures\Product;
+use Treestoneit\ShoppingCart\Tests\Fixtures\TaxableProduct as Product;
 
 class CartTest extends TestCase
 {
@@ -49,5 +49,16 @@ class CartTest extends TestCase
         $this->cart()->destroy();
 
         $this->assertFalse($this->cart()->getModel()->exists);
+    }
+
+    public function testDestroyingCartRemovesCachedTotals()
+    {
+        $this->assertGreaterThan(0, $this->cart()->subtotal());
+        $this->assertGreaterThan(0, $this->cart()->tax());
+
+        $this->cart()->destroy();
+
+        $this->assertEquals(0, $this->cart()->subtotal());
+        $this->assertEquals(0, $this->cart()->tax());
     }
 }

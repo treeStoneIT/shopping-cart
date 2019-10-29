@@ -142,6 +142,8 @@ trait ManagesCartItems
             Session::forget('cart');
         }
 
+        $this->clearCached();
+
         return $this;
     }
 

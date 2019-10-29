@@ -72,6 +72,17 @@ trait CalculatesTotals
     }
 
     /**
+     * Clear the cached totals.
+     *
+     * @return void
+     */
+    public function clearCached(): void
+    {
+        $this->subtotal = 0.0;
+        $this->tax = 0.0;
+    }
+
+    /**
      * Figure out how to calculate tax for the cart items.
      *
      * @param  int|float|null  $rate

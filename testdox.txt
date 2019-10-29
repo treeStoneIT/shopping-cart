@@ -9,6 +9,7 @@ Cart (Treestoneit\ShoppingCart\Tests\Cart)
  [x] Updates item
  [x] Removes item from content
  [x] Destroys entire cart instance
+ [x] Destroying cart removes cached totals
 
 Service Provider (Treestoneit\ShoppingCart\Tests\ServiceProvider)
  [x] Binds cart to container
