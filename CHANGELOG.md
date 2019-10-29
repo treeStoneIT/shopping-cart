@@ -1,6 +1,10 @@
 # Changelog
 
-All notable changes to `shopping-cart` will be documented in this file
+All notable changes to `shopping-cart` will be documented in this file.
+
+## 1.0.3 - 2019-10-29
+
+- Fixed a bug where cached totals weren't clearing on `destroy()`
 
 ## 1.0.2 - 2019-10-24
 
