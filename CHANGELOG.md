@@ -2,7 +2,7 @@
 
 All notable changes to `shopping-cart` will be documented in this file.
 
-## 1.1.0 - 2019-11-04
+## 1.0.4 - 2019-11-04
 
 Migrations are now publishable
 
