@@ -6,6 +6,14 @@ All notable changes to `shopping-cart` will be documented in this file.
 
 - Fixed a bug where cached totals weren't clearing on `destroy()`
 
+## 1.1.0 - 2019-11-04
+
+Added:
+- Migrations are now publishable
+
+Fixed:
+- Clear cached totals when destroying cart instance
+
 ## 1.0.2 - 2019-10-24
 
 - Migration optimization
