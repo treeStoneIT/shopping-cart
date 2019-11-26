@@ -1,3 +1,8 @@
+Cart Item Options (Treestoneit\ShoppingCart\Tests\CartItemOptions)
+ [x] Adds item with options
+ [x] Changes item options
+ [x] Ignores invalid option
+
 Cart Loading (Treestoneit\ShoppingCart\Tests\CartLoading)
  [x] Attaches current cart to user if user doesnt have saved cart
  [x] Loads saved cart if current cart is empty

@@ -2,6 +2,16 @@
 
 All notable changes to `shopping-cart` will be documented in this file.
 
+## 1.1.0 - 2019-11-04
+
+Added:
+- Ability to provide an options array when adding products. If you've already included this package in your project and want to use this feature, you'll need to add a nullable JSON column called `options` to your `cart_items` table.
+```php
+Schema::table('cart_items', function (Blueprint $table) {
+    $table->json('options')->nullable();
+});
+```
+
 ## 1.0.4 - 2019-11-04
 
 Migrations are now publishable

@@ -34,4 +34,11 @@ interface Buyable
      * @return float|int
      */
     public function getExtraFees();
+
+    /**
+     * An array of options (color, size, etc.) for this buyable item.
+     *
+     * @return array
+     */
+    public function getOptions(): array;
 }

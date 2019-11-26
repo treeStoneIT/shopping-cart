@@ -3,6 +3,7 @@
 namespace Treestoneit\ShoppingCart\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Arr;
 
 /**
  * App\Cart\Models\CartItem
@@ -12,6 +13,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $buyable_id
  * @property string $buyable_type
  * @property int $quantity
+ * @property array $options
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \Treestoneit\ShoppingCart\Buyable $buyable
@@ -20,6 +22,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property-read float|null $price
  * @property-read float $subtotal
  * @property-read float $total
+ * @property-read string $identifier
  * @method static \Illuminate\Database\Eloquent\Builder|\Treestoneit\ShoppingCart\Models\CartItem newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\Treestoneit\ShoppingCart\Models\CartItem newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\Treestoneit\ShoppingCart\Models\CartItem query()
@@ -40,6 +43,20 @@ class CartItem extends Model
      * @var array
      */
     protected $guarded = ['id'];
+
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = ['options' => 'array'];
+
+    /**
+     * The unique, option specific identifier for this cart item.
+     *
+     * @var string
+     */
+    protected $identifier;
 
     /**
      * The buyable instance.
@@ -114,5 +131,61 @@ class CartItem extends Model
             $this->getSubtotalAttribute() + $this->getExtraFeesAttribute(),
             2
         );
+    }
+
+    /**
+     * Get the unique identifier for this cart item.
+     *
+     * @return string
+     */
+    public function getIdentifierAttribute(): string
+    {
+        if (is_null($this->identifier)) {
+            $this->identifier = $this->makeIdentifier();
+        }
+
+        return $this->identifier;
+    }
+
+    /**
+     * Add options to this cart item.
+     *
+     * @param  array  $options
+     */
+    public function setOptionsAttribute(array $options)
+    {
+        $this->attributes['options'] = json_encode(array_merge(
+            $this->options ?? [],
+            $this->validateOptions($options)
+        ));
+    }
+
+    /**
+     * Make sure that only the enumerated option values for this buyable are present in the options array.
+     *
+     * @param  array  $options
+     * @return array
+     */
+    protected function validateOptions(array $options): array
+    {
+        $defaults = $this->buyable->getOptions();
+
+        return array_filter($options, function ($value, $key) use ($defaults) {
+            if (! array_key_exists($key, $defaults)) {
+                return false;
+            }
+
+            return $defaults[$key] == '*' || in_array($value, $defaults[$key]);
+        }, ARRAY_FILTER_USE_BOTH);
+    }
+
+    /**
+     * Create a unique identifier for this cart item.
+     *
+     * @return string
+     */
+    protected function makeIdentifier(): string
+    {
+        return md5($this->buyable_id.$this->buyable_type.serialize(Arr::sort($this->options)));
     }
 }

@@ -56,6 +56,19 @@ Or remove the item completely.
 Cart::remove($item->id);
 ```
 
+### Options
+To add item-specific options (such as size or color) to an item in the cart, simply pass an associative array as the third parameter of `Cart::add`.
+```php
+Cart::add($product, 3, ['color' => 'white'];
+```
+You can also add or change options of an item currently in the cart by calling `Cart::updateOptions`.
+```php
+$item = Cart:content()->first();
+
+Cart::updateOptions($item->id, ['color' => 'black']);
+``` 
+The options array will be available on the `CartItem` instance as `$item->options`.
+
 ### Attaching to Users
 
 You can attach a cart instance to a user, so that their cart from a previous session can be retrieved. Attaching a cart to a user is acheived by calling the `attachTo` method, passing in an instance of `Illuminate\Contracts\Auth\Authenticatable`.

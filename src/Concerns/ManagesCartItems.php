@@ -26,12 +26,21 @@ trait ManagesCartItems
      *
      * @param  \Treestoneit\ShoppingCart\Buyable  $buyable
      * @param  int  $quantity
+     * @param  array|null  $options
      * @return \Treestoneit\ShoppingCart\CartManager
      */
-    public function add(Buyable $buyable, int $quantity = 1): self
+    public function add(Buyable $buyable, int $quantity = 1, array $options = []): self
     {
-        $item = $this->items()->first(function (CartItem $cartItem) use ($buyable) {
-            return $cartItem->buyable_id === $buyable->getBuyableIdentifier();
+        $newItem = new CartItem();
+        $newItem->setRelation('buyable', $buyable);
+        $newItem->buyable()->associate($buyable);
+        $newItem->fill([
+            'quantity' => $quantity,
+            'options' => $options,
+        ]);
+
+        $item = $this->items()->first(function (CartItem $cartItem) use ($newItem) {
+            return $cartItem->getIdentifierAttribute() === $newItem->getIdentifierAttribute();
         });
 
         // If the item already exists in the cart, we'll
@@ -46,13 +55,11 @@ trait ManagesCartItems
             $this->cart->save();
         }
 
-        $this->cart->items()->save(
-            $newItem = CartItem::make(['quantity' => $quantity])->buyable()->associate($buyable)
+        // We persist the new item to the database and add it to the items
+        // collection. Eloquent doesn't do this by default, so we'll do it ourselves.
+        $this->cart->items->add(
+            $this->cart->items()->save($newItem)
         );
-
-        // By default Eloquent doesn't add the new item into the items
-        // array on the cart, so we have to do that ourselves.
-        $this->cart->items->add($newItem);
 
         $this->cart->push();
 
@@ -69,7 +76,20 @@ trait ManagesCartItems
      * @return \Treestoneit\ShoppingCart\CartManager
      * @throws \Exception
      */
-    public function update(int $item, int $quantity):self
+    public function update(int $item, int $quantity): self
+    {
+        return $this->updateQuantity($item, $quantity);
+    }
+
+    /**
+     * Change the quantity of an item in the cart.
+     *
+     * @param  int  $item
+     * @param  int  $quantity
+     * @return \Treestoneit\ShoppingCart\CartManager
+     * @throws \Exception
+     */
+    public function updateQuantity(int $item, int $quantity): self
     {
         if ($quantity <= 0) {
             return $this->remove($item);
@@ -80,6 +100,20 @@ trait ManagesCartItems
         }
 
         $this->items()->find($item)->update(['quantity' => $quantity]);
+
+        return $this;
+    }
+
+    /**
+     * Update the options of an item in the cart.
+     *
+     * @param  int  $item
+     * @param  array  $options
+     * @return \Treestoneit\ShoppingCart\CartManager
+     */
+    public function updateOptions(int $item, array $options): self
+    {
+        $this->items()->find($item)->update(['options' => $options]);
 
         return $this;
     }

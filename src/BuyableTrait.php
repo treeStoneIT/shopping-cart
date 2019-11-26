@@ -45,4 +45,14 @@ trait BuyableTrait
     {
         return 0;
     }
+
+    /**
+     * An array of options (color, size, etc.) for this buyable item.
+     *
+     * @return array
+     */
+    public function getOptions(): array
+    {
+        return [];
+    }
 }

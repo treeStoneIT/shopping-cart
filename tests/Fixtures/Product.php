@@ -9,6 +9,8 @@ class Product extends Model implements Buyable
 {
     protected $guarded = [];
 
+    protected $casts = ['options' => 'array'];
+
     /**
      * Get the identifier of the Buyable item.
      *
@@ -47,5 +49,15 @@ class Product extends Model implements Buyable
     public function getExtraFees()
     {
         return 0;
+    }
+
+    /**
+     * An array of options (color, size, etc.) for this buyable item.
+     *
+     * @return array
+     */
+    public function getOptions(): array
+    {
+        return $this->options ?? [];
     }
 }

@@ -21,6 +21,7 @@ class CreateCartItemsTable extends Migration
                   ->on('carts');
             $table->morphs('buyable');
             $table->unsignedInteger('quantity');
+            $table->json('options')->nullable();
             $table->timestamps();
         });
     }
