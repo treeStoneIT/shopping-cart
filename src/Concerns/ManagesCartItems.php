@@ -119,6 +119,19 @@ trait ManagesCartItems
     }
 
     /**
+     * Update an option of an item in the cart.
+     *
+     * @param  int  $item
+     * @param  string  $option
+     * @param $value
+     * @return \Treestoneit\ShoppingCart\CartManager
+     */
+    public function updateOption(int $item, string $option, $value): self
+    {
+        return $this->updateOptions($item, [$option => $value]);
+    }
+
+    /**
      * Remove an item from the cart.
      *
      * @param  int  $item
