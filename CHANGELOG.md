@@ -2,6 +2,10 @@
 
 All notable changes to `shopping-cart` will be documented in this file.
 
+## 1.1.1 - 2019-11-26
+
+Added `updateOption` method
+
 ## 1.1.0 - 2019-11-26
 
 Added:

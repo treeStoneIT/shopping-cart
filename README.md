@@ -57,15 +57,40 @@ Cart::remove($item->id);
 ```
 
 ### Options
-To add item-specific options (such as size or color) to an item in the cart, simply pass an associative array as the third parameter of `Cart::add`.
+To add item-specific options (such as size or color) to an item in the cart, first register available options in your `Buyable` instance.
+```php
+class Product extends Model implements Buyable
+{
+    // ...
+    
+    public function getOptions(): array
+    {
+        return [
+            'size' => ['18 inch', '36 inch'],
+            'color' => ['white', 'blue', 'black'],
+        ];
+    }
+}
+```
+
+Then you just pass an associative array as the third parameter of `Cart::add`.
 ```php
 Cart::add($product, 3, ['color' => 'white'];
 ```
-You can also add or change options of an item currently in the cart by calling `Cart::updateOptions`.
+Any invalid options will be silently removed from the array.
+
+You can also add or change options of an item currently in the cart by calling `Cart::updateOption`.
 ```php
 $item = Cart:content()->first();
 
-Cart::updateOptions($item->id, ['color' => 'black']);
+// Update a single option
+Cart::updateOption($item->id, 'color', 'black');
+
+// Update multiple options at once
+Cart::updateOptions($item->id, [
+    'color' => 'black',
+    'size' => '36 inch',
+]);
 ``` 
 The options array will be available on the `CartItem` instance as `$item->options`.
 
