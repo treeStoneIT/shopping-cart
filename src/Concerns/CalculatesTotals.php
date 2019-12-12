@@ -101,7 +101,7 @@ trait CalculatesTotals
                     : 0;
             }
 
-            return round($item->price * ($rate / 100), 2);
+            return round($item->price * $item->quantity * ($rate / 100), 2);
         };
     }
 }

@@ -15,7 +15,7 @@ class TaxTest extends TestCase
         $this->cart()->add(TaxableProduct::create([
             'name' => 'Tennis Shoes',
             'price' => 5.99,
-        ]));
+        ]), 2);
     }
 
     public function testCalculatesTaxInFlatMode()
@@ -25,18 +25,18 @@ class TaxTest extends TestCase
             'shopping-cart.tax.rate' => 12,
         ]);
 
-        $this->assertEquals(0.72, $this->cart()->tax());
+        $this->assertEquals(1.44, $this->cart()->tax());
     }
 
     public function testCalculatesTaxInPerItemMode()
     {
         $this->app['config']->set(['shopping-cart.tax.mode' => 'per-item']);
 
-        $this->assertEquals(0.60, $this->cart()->tax());
+        $this->assertEquals(1.20, $this->cart()->tax());
     }
 
     public function testCalculatesTaxWithArbitraryRateInput()
     {
-        $this->assertEquals(0.48, $this->cart()->tax(8));
+        $this->assertEquals(0.96, $this->cart()->tax(8));
     }
 }
