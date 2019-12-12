@@ -2,6 +2,10 @@
 
 All notable changes to `shopping-cart` will be documented in this file.
 
+## 1.1.2 - 2019-12-12
+
+Fixed bug where tax calculation did not respect product quantity
+
 ## 1.1.1 - 2019-11-26
 
 Added `updateOption` method
