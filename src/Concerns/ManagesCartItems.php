@@ -144,6 +144,10 @@ trait ManagesCartItems
             return $i->getKey() == $item;
         });
 
+        if ($key === false) {
+            return $this;
+        }
+
         $this->items()->pull($key)->delete();
 
         if ($this->items()->isEmpty()) {
