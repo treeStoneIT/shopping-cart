@@ -2,6 +2,10 @@
 
 All notable changes to `shopping-cart` will be documented in this file.
 
+## 1.1.3 - 2020-01-16
+
+Fixed removing non-existing item bug ([4c38021](https://github.com/treeStoneIT/shopping-cart/commit/4c3802147efbef0066e05fe2f5f2810e2d8ea32f))
+
 ## 1.1.2 - 2019-12-12
 
 Fixed bug where tax calculation did not respect product quantity
