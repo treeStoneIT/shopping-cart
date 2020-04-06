@@ -204,15 +204,15 @@ You can install the package via composer:
 composer require treestoneit/shopping-cart
 ```
 
+To publish the config file and migrations, run
+```bash
+php artisan vendor:publish --provider="Treestoneit\ShoppingCart\CartServiceProvider"
+```
+
 And run the included database migrations.
 
 ```bash
 php artisan migrate
-```
-
-To publish the config file, run
-```bash
-php artisan vendor:publish --provider="Treestoneit\ShoppingCart\CartServiceProvider"
 ```
 
 ## Testing
