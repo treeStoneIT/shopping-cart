@@ -1,6 +1,6 @@
 {
     "name": "treestoneit/shopping-cart",
-    "description": "An easy-to-use shopping cart for Laravel 6.",
+    "description": "An easy-to-use shopping cart for Laravel",
     "keywords": [
         "treestoneit",
         "shopping-cart",
@@ -19,13 +19,13 @@
     "require": {
         "php": "^7.1",
         "ext-json": "*",
-        "illuminate/support": "^6",
-        "illuminate/contracts": "^6",
-        "illuminate/database": "^6"
+        "illuminate/config": "^6.0|^7.0",
+        "illuminate/database": "^6.0|^7.0",
+        "illuminate/support": "^6.0|^7.0"
     },
     "require-dev": {
-        "orchestra/testbench": "4.*",
-        "phpunit/phpunit": "^8.0"
+        "orchestra/testbench": "^4.0|^5.0",
+        "phpunit/phpunit": "^8.0|^9.0"
     },
     "autoload": {
         "psr-4": {

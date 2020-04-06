@@ -1,9 +1,9 @@
-# A Shopping Cart for Laravel 6
+# A Database Driven Shopping Cart for Laravel
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/treestoneit/shopping-cart.svg?style=flat-square)](https://packagist.org/packages/treestoneit/shopping-cart)
 [![Total Downloads](https://img.shields.io/packagist/dt/treestoneit/shopping-cart.svg?style=flat-square)](https://packagist.org/packages/treestoneit/shopping-cart)
 
-This is a simple shopping cart implementation for Laravel 6. It automatically serializes your cart to the database and loads the related product models.
+This is a simple shopping cart implementation for Laravel 6+. It automatically serializes your cart to the database and loads the related product models.
 
 ## Usage
 
