@@ -221,6 +221,9 @@ php artisan migrate
 composer test
 ```
 
+## Starter (demo) Repository
+If you would like to see a starter/demo implementation using this shopping cart please check out our [laravel-commerce repository](https://github.com/treeStoneIT/laravel-commerce)
+
 ## Roadmap
 
 Some things I didn't get around to yet:
