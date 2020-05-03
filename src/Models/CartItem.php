@@ -94,7 +94,7 @@ class CartItem extends Model
      */
     public function getPriceAttribute()
     {
-        return $this->buyable->getBuyablePrice();
+        return $this->buyable->getBuyablePrice($this->options);
     }
 
     /**
@@ -105,7 +105,7 @@ class CartItem extends Model
     public function getSubtotalAttribute()
     {
         return round(
-            $this->buyable->getBuyablePrice() * $this->attributes['quantity'],
+            $this->buyable->getBuyablePrice($this->options) * $this->attributes['quantity'],
             2
         );
     }
