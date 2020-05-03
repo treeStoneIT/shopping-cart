@@ -75,7 +75,7 @@ class Product extends Model implements Buyable
 
 Then you just pass an associative array as the third parameter of `Cart::add`.
 ```php
-Cart::add($product, 3, ['color' => 'white'];
+Cart::add($product, 3, ['color' => 'white']);
 ```
 Any invalid options will be silently removed from the array.
 
