@@ -54,7 +54,7 @@ class CartLoadingTest extends TestCase
         $savedCart->items()->save(
             CartItem::make(['quantity' => 1])->buyable()->associate(Product::create([
                 'name' => 'Heinz Ketchup',
-                'price' => 1.99
+                'price' => 1.99,
             ]))
         );
 
@@ -71,13 +71,13 @@ class CartLoadingTest extends TestCase
         $savedCart->items()->save(
             CartItem::make(['quantity' => 1])->buyable()->associate(Product::create([
                 'name' => 'Heinz Ketchup',
-                'price' => 1.99
+                'price' => 1.99,
             ]))
         );
 
         $this->cart()->add(Product::create([
             'name' => 'Rice Noodles',
-            'price' => 1000
+            'price' => 1000,
         ]));
 
         $this->cart()->loadUserCart($this->user);

@@ -17,7 +17,7 @@ class CartItemOptionsTest extends TestCase
             'price' => 20.99,
             'options' => [
                 'color' => ['aquamarine', 'black'],
-            ]
+            ],
         ]);
 
         $this->cart()->add($product, 1, ['color' => 'aquamarine']);

@@ -2,8 +2,8 @@
 
 namespace Treestoneit\ShoppingCart;
 
-use Treestoneit\ShoppingCart\Models\Cart;
 use Illuminate\Support\ServiceProvider;
+use Treestoneit\ShoppingCart\Models\Cart;
 
 class CartServiceProvider extends ServiceProvider
 {
@@ -20,16 +20,15 @@ class CartServiceProvider extends ServiceProvider
             ], 'config');
 
             $this->publishes([
-                __DIR__.'/../database/migrations' => database_path('migrations')
+                __DIR__.'/../database/migrations' => database_path('migrations'),
             ], 'migrations');
         }
-
     }
 
     /**
      * Register the application services.
      * TODO dedicated cart factory class
-     * TODO replace Laravel framework facades with contracts
+     * TODO replace Laravel framework facades with contracts.
      */
     public function register()
     {

@@ -2,8 +2,8 @@
 
 namespace Treestoneit\ShoppingCart\Concerns;
 
-use Treestoneit\ShoppingCart\Models\Cart as CartModel;
 use Illuminate\Contracts\Auth\Authenticatable;
+use Treestoneit\ShoppingCart\Models\Cart as CartModel;
 
 trait AttachesToUsers
 {

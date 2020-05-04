@@ -2,11 +2,11 @@
 
 namespace Treestoneit\ShoppingCart\Concerns;
 
+use Closure;
+use Illuminate\Support\Facades\Config;
 use Treestoneit\ShoppingCart\Models\CartItem;
 use Treestoneit\ShoppingCart\Models\CartItemCollection;
 use Treestoneit\ShoppingCart\Taxable;
-use Closure;
-use Illuminate\Support\Facades\Config;
 
 trait CalculatesTotals
 {
