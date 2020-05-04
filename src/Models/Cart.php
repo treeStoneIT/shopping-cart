@@ -5,7 +5,7 @@ namespace Treestoneit\ShoppingCart\Models;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * App\Cart\Models\Cart
+ * App\Cart\Models\Cart.
  *
  * @property int $id
  * @property int|null $user_id

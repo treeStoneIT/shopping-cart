@@ -4,11 +4,11 @@ namespace Treestoneit\ShoppingCart;
 
 // TODO When session is destroyed, delete cart not attached to user
 
-use Treestoneit\ShoppingCart\Models\Cart;
 use Countable;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Support\Traits\ForwardsCalls;
 use Illuminate\Support\Traits\Macroable;
+use Treestoneit\ShoppingCart\Models\Cart;
 
 class CartManager implements Countable, CartContract
 {

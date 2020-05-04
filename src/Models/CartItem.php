@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Arr;
 
 /**
- * App\Cart\Models\CartItem
+ * App\Cart\Models\CartItem.
  *
  * @property int $id
  * @property int $cart_id

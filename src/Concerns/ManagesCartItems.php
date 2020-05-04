@@ -2,10 +2,10 @@
 
 namespace Treestoneit\ShoppingCart\Concerns;
 
+use Illuminate\Support\Facades\Session;
 use Treestoneit\ShoppingCart\Buyable;
 use Treestoneit\ShoppingCart\Models\Cart;
 use Treestoneit\ShoppingCart\Models\CartItem;
-use Illuminate\Support\Facades\Session;
 
 trait ManagesCartItems
 {
