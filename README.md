@@ -7,7 +7,7 @@
 [![StyleCI](https://github.styleci.io/repos/213270049/shield?branch=master)](https://github.styleci.io/repos/213270049)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/treeStoneIT/shopping-cart/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/treeStoneIT/shopping-cart/?branch=master)
 
-This is a simple shopping cart implementation for Laravel 6+. It automatically serializes your cart to the database and loads the related product models.
+This is a simple shopping cart implementation for Laravel 6/7/8. It automatically serializes your cart to the database and loads the related product models.
 
 ## Usage
 

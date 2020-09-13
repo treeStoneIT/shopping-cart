@@ -2,6 +2,15 @@
 
 All notable changes to `shopping-cart` will be documented in this file.
 
+## 1.4.0 - 2020-09-13
+
+- Laravel 8 support
+- drop support for PHP 7.2 as EOL is around the corner
+
+## 1.3.0 - 2020-05-03
+
+- Enable Variable pricing based on Product Options
+
 ## 1.2.0 - 2020-04-05
 
 - add support for Laravel 7
