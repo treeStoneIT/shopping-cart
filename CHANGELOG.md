@@ -2,6 +2,11 @@
 
 All notable changes to `shopping-cart` will be documented in this file.
 
+## 1.4.1 - 2021-01-21
+
+- Fix for CVE-2021-21263
+- add support for php 8
+
 ## 1.4.0 - 2020-09-13
 
 - Laravel 8 support
