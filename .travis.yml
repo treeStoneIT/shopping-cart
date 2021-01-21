@@ -3,11 +3,22 @@ language: php
 php:
   - 7.3
   - 7.4
+  - 8.0
 
 env:
   matrix:
-    - COMPOSER_FLAGS="--prefer-lowest"
-    - COMPOSER_FLAGS=""
+      - LARAVEL=^6.0  TESTBENCH=4.7.* PHPUNIT=8.4.*
+      - LARAVEL=^7.0  TESTBENCH=5.1.* PHPUNIT=8.4.*
+
+      # All versions below only support PHP ^7.3 (Laravel requirement)
+      - LARAVEL=^8.0  TESTBENCH=^6.0 PHPUNIT=9.3.*
+
+matrix:
+    exclude:
+    - php: 8.0
+      env: LARAVEL=^6.0  TESTBENCH=4.7.* PHPUNIT=8.4.*
+    - php: 8.0
+      env: LARAVEL=^7.0  TESTBENCH=5.1.* PHPUNIT=8.4.*
 
 before_script:
   - travis_retry composer self-update
