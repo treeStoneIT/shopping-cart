@@ -13,6 +13,13 @@ env:
       # All versions below only support PHP ^7.3 (Laravel requirement)
       - LARAVEL=^8.0  TESTBENCH=^6.0 PHPUNIT=9.3.*
 
+matrix:
+    exclude:
+    - php: 8.0
+      env: LARAVEL=^6.0  TESTBENCH=4.7.* PHPUNIT=8.4.*
+    - php: 8.0
+      env: LARAVEL=^7.0  TESTBENCH=5.1.* PHPUNIT=8.4.*
+
 before_script:
   - travis_retry composer self-update
   - travis_retry composer update ${COMPOSER_FLAGS} --no-interaction --prefer-source
