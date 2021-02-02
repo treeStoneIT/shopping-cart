@@ -2,6 +2,10 @@
 
 All notable changes to `shopping-cart` will be documented in this file.
 
+## 1.4.2 - 2021-02-02
+
+- Upgrade illuminate/database to version 7.30.4 or later - fix for GHSA-3p32-j457-pg5x
+
 ## 1.4.1 - 2021-01-21
 
 - Fix for CVE-2021-21263
