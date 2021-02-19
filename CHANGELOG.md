@@ -2,6 +2,10 @@
 
 All notable changes to `shopping-cart` will be documented in this file.
 
+## 1.4.3 - 2021-02-18
+
+- Update config file: keep the default values, but look for env variables if available.
+
 ## 1.4.2 - 2021-02-02
 
 - Upgrade illuminate/database to version 7.30.4 or later - fix for GHSA-3p32-j457-pg5x
