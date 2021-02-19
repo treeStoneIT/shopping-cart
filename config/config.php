@@ -16,12 +16,12 @@ return [
          *
          * Acceptable modes are 'flat' and 'per-item'.
          */
-        'mode' => 'flat',
+        'mode' => env('SHOPPING_CART_TAX_MODE', 'flat'),
 
         /*
          * This tax rate will be used with 'flat' mode.
          */
-        'rate' => 0,
+        'rate' => env('SHOPPING_CART_TAX_RATE', 0),
     ],
 
 ];
