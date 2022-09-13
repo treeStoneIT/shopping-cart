@@ -23,6 +23,7 @@ use Illuminate\Support\Arr;
  * @property-read float $subtotal
  * @property-read float $total
  * @property-read string $identifier
+ *
  * @method static \Illuminate\Database\Eloquent\Builder|\Treestoneit\ShoppingCart\Models\CartItem newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\Treestoneit\ShoppingCart\Models\CartItem newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\Treestoneit\ShoppingCart\Models\CartItem query()
