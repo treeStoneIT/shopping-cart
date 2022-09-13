@@ -20,7 +20,7 @@
         "php": "^7.3|^8.0|^8.1",
         "ext-json": "*",
         "illuminate/config": "^6.0|^7.0|^8.0|^9.0",
-        "illuminate/database": "^6.20.12|^7.30.4|^8.22.1|^9.0",
+        "illuminate/database": "^6.20.26|^7.30.5|^8.40.0|^9.0",
         "illuminate/support": "^6.0|^7.0|^8.0|^9.0"
     },
     "require-dev": {
