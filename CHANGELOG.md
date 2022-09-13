@@ -2,6 +2,10 @@
 
 All notable changes to `shopping-cart` will be documented in this file.
 
+## 1.5 - 2022-09-13
+
+- add support for php 8
+
 ## 1.4.3 - 2021-02-18
 
 - Update config file: keep the default values, but look for env variables if available.
