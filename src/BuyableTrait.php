@@ -20,6 +20,7 @@ trait BuyableTrait
      * Get the description or title of the Buyable item.
      *
      * @return string
+     *
      * @throws \Exception
      */
     public function getBuyableDescription()
@@ -31,6 +32,7 @@ trait BuyableTrait
      * Get the price of the Buyable item.
      *
      * @return float|null
+     *
      * @throws \Exception
      */
     public function getBuyablePrice()

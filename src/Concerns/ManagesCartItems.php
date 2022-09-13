@@ -74,6 +74,7 @@ trait ManagesCartItems
      * @param  int  $item
      * @param  int  $quantity
      * @return \Treestoneit\ShoppingCart\CartManager
+     *
      * @throws \Exception
      */
     public function update(int $item, int $quantity): self
@@ -87,6 +88,7 @@ trait ManagesCartItems
      * @param  int  $item
      * @param  int  $quantity
      * @return \Treestoneit\ShoppingCart\CartManager
+     *
      * @throws \Exception
      */
     public function updateQuantity(int $item, int $quantity): self
@@ -136,6 +138,7 @@ trait ManagesCartItems
      *
      * @param  int  $item
      * @return static
+     *
      * @throws \Exception
      */
     public function remove(int $item): self

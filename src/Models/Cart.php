@@ -13,6 +13,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \Treestoneit\ShoppingCart\Models\CartItemCollection|\Treestoneit\ShoppingCart\Models\CartItem[] $items
  * @property-read int|null $items_count
+ *
  * @method static \Illuminate\Database\Eloquent\Builder|\Treestoneit\ShoppingCart\Models\Cart newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\Treestoneit\ShoppingCart\Models\Cart newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\Treestoneit\ShoppingCart\Models\Cart query()
