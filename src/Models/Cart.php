@@ -21,6 +21,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\Treestoneit\ShoppingCart\Models\Cart whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\Treestoneit\ShoppingCart\Models\Cart whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\Treestoneit\ShoppingCart\Models\Cart whereUserId($value)
+ *
  * @mixin \Eloquent
  */
 class Cart extends Model

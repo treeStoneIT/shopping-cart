@@ -34,6 +34,7 @@ use Illuminate\Support\Arr;
  * @method static \Illuminate\Database\Eloquent\Builder|\Treestoneit\ShoppingCart\Models\CartItem whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\Treestoneit\ShoppingCart\Models\CartItem whereQuantity($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\Treestoneit\ShoppingCart\Models\CartItem whereUpdatedAt($value)
+ *
  * @mixin \Eloquent
  */
 class CartItem extends Model
