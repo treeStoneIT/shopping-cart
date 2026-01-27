@@ -13,7 +13,7 @@ class CartItemCollection extends Collection
      * @param  int  $places
      * @return float
      */
-    public function sumRounded(callable $callback = null, int $places = 2)
+    public function sumRounded(?callable $callback = null, int $places = 2)
     {
         return round($this->sum($callback), $places);
     }

@@ -125,7 +125,7 @@ trait ManagesCartItems
      *
      * @param  int  $item
      * @param  string  $option
-     * @param $value
+     * @param  $value
      * @return \Treestoneit\ShoppingCart\CartManager
      */
     public function updateOption(int $item, string $option, $value): self
@@ -180,7 +180,7 @@ trait ManagesCartItems
      * @param  \Treestoneit\ShoppingCart\Models\Cart|null  $cart
      * @return static
      */
-    public function refreshCart(Cart $cart = null): self
+    public function refreshCart(?Cart $cart = null): self
     {
         if ($cart) {
             $this->cart = $cart;
